@@ -51,27 +51,27 @@
                                 <h6 class="my-3 text-white">Nama Lengkap</h6>
                                 <div class="form-group">
                                     <input type="text" class="form-control rounded-pill py-3 px-4"
-                                        value={{ Auth::user()->name }} required>
+                                        value="{{ Auth::user()->name }}" required>
                                 </div>
                                 <h6 class="my-3 text-white">Email</h6>
                                 <div class="form-group">
                                     <input id="emaiil-field" type="email" class="form-control rounded-pill py-3 px-4"
-                                        value={{ auth()->user()->email }} required>
+                                        value="{{ auth()->user()->email }}" required>
                                 </div>
                                 <h6 class="my-3 text-white">Nomor Telepon</h6>
                                 <div class="form-group">
                                     <input type="tel" class="form-control rounded-pill py-3 px-4"
-                                        value={{ auth()->user()->contact_number }} required>
+                                        value="{{ auth()->user()->contact_number }}" required>
                                 </div>
                                 <h6 class="my-3 text-white">Alamat</h6>
                                 <div class="form-group">
                                     <input type="text" class="form-control rounded-pill py-3 px-4"
-                                        placeholder="Silahkan masukan alamat anda" required>
+                                        value="{{ auth()->user()->address }}" required>
                                 </div>
                                 <h6 class="my-3 text-white">Kode Referal</h6>
                                 <div class="form-group">
                                     <input type="text" class="form-control rounded-pill py-3 px-4"
-                                        placeholder="@KDREFOP000001" disabled>
+                                        value="{{ auth::user()->ref_code }}" required disabled>
                                     {{-- <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> --}}
                                 </div>
                             @endauth

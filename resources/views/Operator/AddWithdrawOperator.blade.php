@@ -15,42 +15,45 @@ background: -webkit-linear-gradient(89.99deg, #5261DA 85%, #653CDC 90.16%, #A182
     <section class="d-flex justify-content-center ">
         <div class="container bg-dark-content p-5 rounded-card">
             <div class="d-flex justify-content-center text-white col-12">
-                <a class="btn btn-secondary btn-not-active-left" href="/operator-addDeposite">Deposite</a>
-                <a class="btn btn-primary btn-active-right" href="/operator-addWithdraw">Withdraw</a>
+                <a class="btn btn-primary btn-active-left" href="/operator-addDeposite">Deposite</a>
+                <a class="btn btn-secondary btn-not-active-right" href="/operator-addWithdraw">Withdraw</a>
             </div>
             <div class="row justify-content-center mt-3">
                 <div class="col-12">
                     <div class="login-wrap p-0">
                         <form action="#" class="signin-form ">
-
+                            <h6 class="my-3 text-white">Bukti Transfer</h6>
+                            <div class="form-group">
+                                <input id="file" type="file" class="form-control rounded-pill py-3 px-4" required>
+                            </div>
                             <h6 class="my-3 text-white">Nama Pengguna(User)</h6>
                             <div class="form-group">
                                 <input id="" type="text" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Aryo Wiguna Cahyo" disabled>
+                                    placeholder="Aryo Wiguna Cahyo" name="name" disabled>
                             </div>
                             <h6 class="my-3 text-white">Saldo</h6>
                             <div class="form-group">
                                 <input id="" type="text" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Rp 2.000.000" disabled>
+                                    placeholder="Rp 2.000.000" name="balance" disabled>
                             </div>
                             <h6 class="my-3 text-white">Jumlah Withdraw</h6>
                             <div class="form-group">
                                 <input id="" type="text" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Rp 10.000.000" required>
+                                    placeholder="Rp 10.000.000" name="withdraw_value" required>
                             </div>
                             <h6 class="my-3 text-white">Tanggal/Waktu</h6>
                             <div class="form-group">
                                 <input id="" type="datetime" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="09-11-2022 17:25" disabled>
+                                    placeholder="09-11-2022 17:25" name="datetime" disabled>
                             </div>
                             <h6 class="my-3 text-white">Nomor Referal</h6>
                             <div class="form-group">
                                 <input id="" type="text" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="@Operator001" disabled>
+                                    placeholder="@Operator001" name="reff_number" disabled>
                             </div>
                             <div class="form-group mb-3 mt-5">
                                 <button type="submit"
-                                    class="form-control btn btn-primary submit py-3 px-3 rounded-pill">Withdraw</button>
+                                    class="form-control btn btn-primary submit py-3 px-3 rounded-pill">Simpan</button>
                             </div>
                             <div class="form-group">
                                 <a class="form-control btn btn-outline-primary py-3 px-3 rounded-pill"

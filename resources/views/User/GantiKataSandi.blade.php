@@ -29,16 +29,18 @@
             <div class="row justify-content-center mt-3">
                 <div class="col-12">
                     <div class="login-wrap p-0">
-                        <form action="#" class="signin-form ">
+                        <form action="{{ route('updatesandi.action') }}" method="post" class="signin-form ">
+                            @csrf
                             <h6 class="mt-1 mb-3 text-white">Kata Sandi Baru</h6>
                             <div class="form-group">
                                 <input id="password-field" type="password" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Silahkan masukan Kata Sandi Baru Anda" required>
+                                    placeholder="Silahkan masukan Kata Sandi Baru Anda" name="password" required>
                             </div>
                             <h6 class="my-3 text-white">Konfirmasi Kata Sandi</h6>
                             <div class="form-group">
                                 <input id="password-field" type="password" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Silahkan masukan kembali Kata Sandi Anda" required>
+                                    placeholder="Silahkan masukan kembali Kata Sandi Anda" name="confirm_password"
+                                    required>
                                 {{-- <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> --}}
                             </div>
                             <div class="form-group mb-3 mt-5">

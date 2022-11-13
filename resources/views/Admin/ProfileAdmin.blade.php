@@ -10,7 +10,8 @@
             <div class="row justify-content-center ">
                 <div class="col-12">
                     <div class="login-wrap p-0">
-                        <form action="#" class="signin-form ">
+                        <form action="{{ route('update.action') }}" method="post" class="signin-form">
+                            @csrf
                             <div class="text-center">
                                 <div class="form-group">
                                     <label for="formFileSm" class="label_display form-label"><img
@@ -24,32 +25,34 @@
                             <h6 class="mt-1 mb-3 text-white">ID Akun</h6>
                             <div class="form-group">
                                 <input type="text" class="form-control rounded-pill py-3 px-4" placeholder="@Admin"
-                                    required disabled>
+                                    name="id_account" value="{{ auth()->user()->id }}" required disabled>
                             </div>
                             <h6 class="my-3 text-white">Nama Lengkap</h6>
                             <div class="form-group">
-                                <input type="text" class="form-control rounded-pill py-3 px-4" value="Hitnes Muharram"
-                                    required>
+                                <input type="text" class="form-control rounded-pill py-3 px-4" name="name"
+                                    value="{{ Auth::user()->name }}" required>
                             </div>
                             <h6 class="my-3 text-white">Email</h6>
                             <div class="form-group">
                                 <input id="emaiil-field" type="email" class="form-control rounded-pill py-3 px-4"
-                                    value="user@gmail.com" required>
+                                    name="email" value="{{ auth()->user()->email }}" required>
                             </div>
                             <h6 class="my-3 text-white">Nomor Telepon</h6>
                             <div class="form-group">
-                                <input type="tel" class="form-control rounded-pill py-3 px-4" value="0812345678"
-                                    required>
+                                <input type="tel" class="form-control rounded-pill py-3 px-4" name="contact_number"
+                                    value="{{ auth()->user()->contact_number }}" required>
                             </div>
                             <h6 class="my-3 text-white">Alamat</h6>
                             <div class="form-group">
-                                <input type="text" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Silahkan masukan alamat anda" required>
+                                <input type="text" class="form-control rounded-pill py-3 px-4" name="address"
+                                    value="{{ auth()->user()->address }}" placeholder="Silahkan masukan alamat anda"
+                                    required>
                             </div>
                             <h6 class="my-3 text-white">Kode Referal</h6>
                             <div class="form-group">
                                 <input type="text" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="@KDREFOP000001" disabled>
+                                    placeholder="@KDREFOP000001" name="reff_code" value="{{ auth()->user()->ref_code }}"
+                                    disabled>
                                 {{-- <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> --}}
                             </div>
                             <div class="form-group mb-3 mt-4">
@@ -69,7 +72,7 @@
     <section class="d-flex justify-content-center pb-5">
         <div class="container">
             <div class="form-group mb-3 mt-4">
-                <a class="form-control btn btn-primary py-3 rounded-pill" href="/operator-change-password">Ganti Kata
+                <a class="form-control btn btn-primary py-3 rounded-pill" href="/admin-change-password">Ganti Kata
                     Sandi</a>
             </div>
             <div class="form-group">

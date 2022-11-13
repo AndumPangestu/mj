@@ -24,27 +24,27 @@
                             <h6 class="mt-1 mb-3 text-white">ID Akun</h6>
                             <div class="form-group">
                                 <input type="text" class="form-control rounded-pill py-3 px-4" placeholder="@Operator1"
-                                    required disabled>
+                                    name="Id_account" required disabled>
                             </div>
                             <h6 class="my-3 text-white">Nama Lengkap</h6>
                             <div class="form-group">
                                 <input type="text" class="form-control rounded-pill py-3 px-4" value="Hitnes Muharram"
-                                    required>
+                                    name="name" required>
                             </div>
                             <h6 class="my-3 text-white">Email</h6>
                             <div class="form-group">
-                                <input id="emaiil-field" type="email" class="form-control rounded-pill py-3 px-4"
-                                    value="user@gmail.com" required>
+                                <input id="email-field" type="email" class="form-control rounded-pill py-3 px-4"
+                                    value="user@gmail.com" name="email" required>
                             </div>
                             <h6 class="my-3 text-white">Nomor Telepon</h6>
                             <div class="form-group">
                                 <input type="tel" class="form-control rounded-pill py-3 px-4" value="0812345678"
-                                    required>
+                                    name="telp_number" required>
                             </div>
                             <h6 class="my-3 text-white">Alamat</h6>
                             <div class="form-group">
                                 <input type="text" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Silahkan masukan alamat anda" required>
+                                    placeholder="Silahkan masukan alamat anda" name="address" required>
                             </div>
                             <h6 class="my-3 text-white">Kode Referal</h6>
                             <div class="form-group">

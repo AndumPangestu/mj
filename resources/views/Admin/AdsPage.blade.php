@@ -20,24 +20,43 @@
     </div>
     <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+            @php
+                $number = 0;
+            @endphp
+            @foreach ($users as $user)
+                @if ($number == 0)
+                    <button type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="{{ $number }}" class="active" aria-current="true"
+                        aria-label="Slide {{ $number + 1 }}"></button>
+                @else
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                @endif
+
+                @php
+                    $number++;
+                @endphp
+            @endforeach
 
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="image/financialtradingslide.png" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="image/financialtradingslide.png" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="image/financialtradingslide.png" class="d-block w-100" alt="...">
-            </div>
+            @php
+                $number = 0;
+            @endphp
+            @foreach ($users as $user)
+                @if ($number == 0)
+                    <div class="carousel-item active">
+                        <img src="images/iklan/{{ $user->image }}" class="d-block w-100" alt="...">
+                    </div>
+                @else
+                    <div class="carousel-item">
+                        <img src="images/iklan/{{ $user->image }}" class="d-block w-100" alt="...">
+                    </div>
+                @endif
+                @php
+                    $number++;
+                @endphp
+            @endforeach
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev">
@@ -51,6 +70,10 @@
         </button>
     </div>
     <marquee direction="left" class="mb-5">
-        <h5 class="my-auto py-2">TEXT BERJALAN </h5>
+        <h5 class="my-auto py-2">
+            @foreach ($users as $user)
+                {{ $user->running_text }}
+            @endforeach
+        </h5>
     </marquee>
 @endsection

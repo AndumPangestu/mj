@@ -14,10 +14,10 @@ class CreateWithdrawsTable extends Migration
     public function up()
     {
         Schema::create('withdraws', function (Blueprint $table) {
-            $table->id('with_id');
-            $table->foreignId('id');
-            $table->integer('total_withdraws');
-            $table->integer('withdraws');
+            $table->id('id');
+            $table->string('image', 200);
+            $table->foreignId('id_user');
+            $table->integer('withdraws_value');
             $table->timestamp('withdraw_date')->nullable();
         });
     }

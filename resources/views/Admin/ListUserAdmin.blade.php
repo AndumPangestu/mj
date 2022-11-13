@@ -18,21 +18,16 @@
                     </tr>
                 </thead>
                 <tbody class="table-body">
-                    <tr>
-                        <td style="text-align: center">1</td>
-                        <td>USER001</td>
-                        <td><button type="button" class="btn btn-table">Lihat Detail</button></td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center">2</td>
-                        <td>USER002</td>
-                        <td><button type="button" class="btn btn-table">Lihat Detail</button></td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center">3</td>
-                        <td>USER003</td>
-                        <td><button type="button" class="btn btn-table">Lihat Detail</button></td>
-                    </tr>
+                    @php($i = 1)
+                    @foreach ($users as $user)
+                        <tr>
+                            <td style="text-align: center">{{ $i++ }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td><a href="{{ route('user.detail', $user->id) }}" type="button" class="btn btn-table">Lihat
+                                    Detail</a></td>
+                        </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

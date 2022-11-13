@@ -35,15 +35,27 @@ class MainController extends Controller
         ]);
 
 
+        $role = 1;
+
+        if (Auth::check()) {
+
+            $role = 2;
+        }
+
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
             'contact_number' => $request->contact_number,
             'password' => Hash::make($request->password),
+            'role' => $role
         ]);
 
         $user->save();
-        return redirect()->route('login-')->with('success', 'Registration success. Please login!');
+        if (Auth::check()) {
+            return redirect()->route('operator.list')->with('success', 'Registration success. Please login!');
+        } else {
+            return redirect()->route('login-')->with('success', 'Registration success. Please login!');
+        }
     }
 
 
@@ -58,10 +70,19 @@ class MainController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+
+
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/homepage');
+
+            if (Auth::user()->role == 1) {
+                return redirect()->intended('/homepage');
+            } else if (Auth::user()->role == 2) {
+                return redirect()->intended('/operator-homepage');
+            } else if (Auth::user()->role == 3) {
+                return redirect()->intended('/admin-homepage');
+            }
         }
 
         return back()->withErrors([
@@ -88,19 +109,13 @@ class MainController extends Controller
     //     return back()->with('success', 'Password changed!');
     // }
 
+
+
     public function logout(Request $request)
     {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerate();
         return redirect()->intended('login-');
-    }
-
-    public function profile()
-    {
-
-
-
-        return view('user/profiluser');
     }
 }

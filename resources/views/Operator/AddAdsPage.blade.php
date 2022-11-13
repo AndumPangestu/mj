@@ -26,13 +26,12 @@
                         <form action="#" class="signin-form ">
 
                             <div class="form-group">
-                                <input id="file" type="file" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Silahkan masukan Kata Sandi Baru Anda" required>
+                                <input id="file" type="file" class="form-control rounded-pill py-3 px-4" required>
                             </div>
                             <h6 class="my-3 text-white">Text Berjalan</h6>
                             <div class="form-group mb-3">
                                 <textarea class="form-control rounded-card p-3" placeholder="Silahkan masukan Text Berjalan"
-                                    style="height: 150px; resize: none;"></textarea>
+                                    style="height: 150px; resize: none;" name="running_text"></textarea>
                             </div>
                             <div class="form-group mb-3 mt-5">
                                 <button type="submit"

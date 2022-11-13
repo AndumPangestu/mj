@@ -23,16 +23,18 @@
             <div class="row justify-content-center mt-3">
                 <div class="col-12">
                     <div class="login-wrap p-0">
-                        <form action="#" class="signin-form ">
-
+                        <form action="{{ route('iklan.add') }}" method="POST" enctype="multipart/form-data"
+                            class="signin-form ">
+                            @csrf
                             <div class="form-group">
-                                <input id="file" type="file" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Silahkan masukan Kata Sandi Baru Anda" required>
+                                <input type="file" name="image" id="inputImage"
+                                    class="form-control rounded-pill py-3 px-4"
+                                    placeholder="Silahkan masukan Kata Sandi Baru Anda" name="image" required>
                             </div>
                             <h6 class="my-3 text-white">Text Berjalan</h6>
                             <div class="form-group mb-3">
-                                <textarea class="form-control rounded-card p-3" placeholder="Silahkan masukan Text Berjalan"
-                                    style="height: 150px; resize: none;"></textarea>
+                                <textarea class="form-control rounded-card p-3 text-white" placeholder="Silahkan masukan Text Berjalan"
+                                    style="height: 150px; resize: none;" name="running_text"></textarea>
                             </div>
                             <div class="form-group mb-3 mt-5">
                                 <button type="submit"

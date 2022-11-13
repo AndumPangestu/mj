@@ -1,6 +1,24 @@
 @extends('layouts.admin.mainadmin')
 @section('containerAdmin')
-    <div class=" bg-dark-content w-content text-light m-5 p-5 rounded-card">
+    <div class="welcome-section me-n1">
+        <div class="row bg-dark d-flex justify-content-start mt-new-5">
+
+            <h5 class="col-4 mt-4 pb-3" style="font-size: 12px; text-align:center; color:white;"><span
+                    style="font-size: 12px;
+    background: -webkit-linear-gradient(89.99deg, #5261DA 85%, #653CDC 90.16%, #A182E2 95.31%, #02A3D6 99.99%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;">
+                    Hey Admin - </span>Selamat Datang di PT.MajuBersama</h5>
+        </div>
+    </div>
+    <div class="row bg-dark d-flex justify-content-start m-3">
+
+        <div class="col">
+            <a class="btn-primary btn mb-3 px-5" href="/admin-addOperator" style="font-size: 12px; text-align: center;">
+                <span style="font-size: 12px;">+ </span>Buat Operator Baru</a>
+        </div>
+    </div>
+    <div class=" bg-dark-content w-content text-light m-3 p-5 rounded-card">
         <div class="mb-4">
             <div class="d-flex justify-content between">
                 <h5 class="ps-4">Daftar Operator<span class="badge rounded-pill bg-white py-2">1000
@@ -8,6 +26,7 @@
             </div>
 
         </div>
+
         <div>
             <table class="table">
                 <thead class="table-head">
@@ -18,21 +37,18 @@
                     </tr>
                 </thead>
                 <tbody class="table-body">
-                    <tr>
-                        <td style="text-align: center">1</td>
-                        <td>OPERATOR001</td>
-                        <td><button type="button" class="btn btn-table">Lihat Detail</button></td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center">2</td>
-                        <td>OPERATOR002</td>
-                        <td><button type="button" class="btn btn-table">Lihat Detail</button></td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center">3</td>
-                        <td>OPERATOR003</td>
-                        <td><button type="button" class="btn btn-table">Lihat Detail</button></td>
-                    </tr>
+                <tbody class="table-body">
+                    @php($i = 1)
+                    @foreach ($users as $user)
+                        <tr>
+                            <td style="text-align: center">{{ $i++ }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td><a href="{{ route('user.detail', $user->id) }}" type="button" class="btn btn-table">Lihat
+                                    Detail</a></td>
+                        </tr>
+                    @endforeach
+
+                </tbody>
                 </tbody>
             </table>
         </div>

@@ -28,7 +28,9 @@
             <div class="row justify-content-center ">
                 <div class="col-12">
                     <div class="login-wrap p-0">
-                        <form action="#" class="signin-form ">
+
+                        <form action="{{ route('update.action') }}" method="post" class="signin-form ">
+                            @csrf
                             <div class="text-center">
                                 <div class="form-group">
                                     <label for="formFileSm" class="label_display form-label"><img
@@ -51,27 +53,27 @@
                                 <h6 class="my-3 text-white">Nama Lengkap</h6>
                                 <div class="form-group">
                                     <input type="text" class="form-control rounded-pill py-3 px-4"
-                                        value="{{ Auth::user()->name }}" required>
+                                        value="{{ Auth::user()->name }}" name="name" required>
                                 </div>
                                 <h6 class="my-3 text-white">Email</h6>
                                 <div class="form-group">
                                     <input id="emaiil-field" type="email" class="form-control rounded-pill py-3 px-4"
-                                        value="{{ auth()->user()->email }}" required>
+                                        value="{{ auth()->user()->email }}" name="email" required>
                                 </div>
                                 <h6 class="my-3 text-white">Nomor Telepon</h6>
                                 <div class="form-group">
                                     <input type="tel" class="form-control rounded-pill py-3 px-4"
-                                        value="{{ auth()->user()->contact_number }}" required>
+                                        value="{{ auth()->user()->contact_number }}" name="contact_number" required>
                                 </div>
                                 <h6 class="my-3 text-white">Alamat</h6>
                                 <div class="form-group">
                                     <input type="text" class="form-control rounded-pill py-3 px-4"
-                                        value="{{ auth()->user()->address }}" required>
+                                        value="{{ auth()->user()->address }}" name="address" required>
                                 </div>
                                 <h6 class="my-3 text-white">Kode Referal</h6>
                                 <div class="form-group">
                                     <input type="text" class="form-control rounded-pill py-3 px-4"
-                                        value="{{ auth::user()->ref_code }}" required disabled>
+                                        value="{{ auth::user()->ref_code }}" name="ref_code" required disabled>
                                     {{-- <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> --}}
                                 </div>
                             @endauth

@@ -1,3 +1,14 @@
+{{-- @php
+    if (Auth::check()) {
+        // The user is logged in...
+        if (Auth::user()->role < 2) {
+            return view('login');
+        }
+    } else {
+        return redirect()->route('login-');
+    }
+@endphp --}}
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -11,6 +22,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="app.css" rel="stylesheet">
+
     <!-- Styles -->
 
     <style>
@@ -45,13 +57,9 @@
                     <a href="profile.php"><span class="iconify me-3" data-icon="clarity:avatar-line" data-width="30"
                             data-height="30" style="color: #1b2223;"></span></a>
                 </div>
-                <div class="link chart">
-                    <a href="cart.php"><span class="iconify me-3" data-icon="la:shopping-bag" data-width="30"
-                            data-height="30" style="color: #1b2223;"></span></a>
-                </div>
                 <div class="link logout me-5">
-                    <a href="proses/logout_p.php"><span class="iconify" data-icon="ion:log-out-outline" data-width="30"
-                            data-height="30" style="color: #d60000;"></span></a>
+                    <a href="{{ route('logout') }}"><span class="iconify" data-icon="ion:log-out-outline"
+                            data-width="30" data-height="30" style="color: #d60000;"></span></a>
                 </div>
             </div>
         </div>
@@ -75,7 +83,7 @@
                                 <p class="for-link mb-2" style="font-size: 12px; text-align: center; color: white;">
                                     IKLAN
                                 </p>
-                                <a class="font-primary for-link mb-4" href="/admin-adspage"
+                                <a class="font-primary for-link mb-4" href="{{ route('ads.page') }}"
                                     style="font-size: 12px; text-align: center;">
                                     <span>Iklan</span>
                                 </a>
@@ -86,7 +94,7 @@
                                 <p class="for-link mb-2" style="font-size: 12px; text-align: center; color: white;">
                                     OPERATOR
                                 </p>
-                                <a class="font-primary for-link mb-4" href="/admin-listuser"
+                                <a class="font-primary for-link mb-4" href="{{ route('operator.list') }}"
                                     style="font-size: 12px; text-align: center;">
                                     <span>List Operator</span>
                                 </a>
@@ -95,7 +103,7 @@
                             <div class="row ">
                                 <p class="for-link mb-2" style="font-size: 12px; text-align: center; color: white;">USER
                                 </p>
-                                <a class="font-primary for-link mb-4" href="/admin-listuser"
+                                <a class="font-primary for-link mb-4" href="{{ route('user.list') }}"
                                     style="font-size: 12px; text-align: center;">
                                     <span>List User</span>
                                 </a>
@@ -112,7 +120,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <a class="font-primary for-link mb-4 p-auto" href="/login-"
+                            <a class="font-primary for-link mb-4 p-auto" href="/admin-profile"
                                 style="font-size: 12px; text-align: center;">
                                 <span>Settings</span>
                             </a>

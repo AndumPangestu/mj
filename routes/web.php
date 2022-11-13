@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +17,9 @@ use App\Http\Controllers\MainController;
 |
 */
 
-// Route::get('/login-', function () {
-//     return view('login');
-// });
+Route::get('/login-', function () {
+    return view('login');
+})->name('login-page');
 
 // Route::get('/registration', function () {
 //     return view('Registration');
@@ -120,6 +123,10 @@ Route::get('/admin-change-password', function () {
 
 Route::get('/admin-addAds', function () {
     return view('/Admin/AddAdsPage');
+})->name('admin.addads');
+
+Route::get('/admin-addOperator', function () {
+    return view('/Admin/AddOperator');
 });
 
 Route::get('/admin-addDeposite', function () {
@@ -138,18 +145,34 @@ Route::get('/admin-seeWithdraw', function () {
     return view('/Admin/SeeWithdrawAdmin');
 });
 
-Route::get('/registration', [MainController::class, 'register'])->name('registration.action')->middleware('guest');
+Route::get('/registration', [MainController::class, 'register'])->name('registration.action');
 Route::post('/registration', [MainController::class, 'register_action']);
 
 Route::get('/login-', [MainController::class, 'login'])->name('login-');
 Route::post('/login-', [MainController::class, 'login_action'])->name('login.action');
 
-Route::get('/profileuser', [MainController::class, 'profile'])->name('profile');
+Route::get('/profileuser', [UserController::class, 'profile'])->name('profile');
+
+Route::get('/profileadmin', [UserController::class, 'profileadmin'])->name('profileadmin');
+
+Route::post('/profileuser', [UserController::class, 'update_user'])->name('update.action');
+
+
+
+Route::post('/change-password', [UserController::class, 'password_action'])->name('updatesandi.action');
 
 Route::get('logout', [MainController::class, 'logout'])->name('logout');
 
+Route::post('/admin-addAds', [AdminController::class, 'add_iklan'])->name('iklan.add');
 
 
+Route::get('/admin-listuser', [AdminController::class, 'user_list'])->name('user.list');
+Route::get('/admin-listoperator', [AdminController::class, 'operator_list'])->name('operator.list');
+
+Route::get('/admin-adspage', [AdminController::class, 'ads_page'])->name('ads.page');
+
+
+Route::get('/admin-addDeposite', [AdminController::class, 'deposit'])->name('user.detail');
 
 
 

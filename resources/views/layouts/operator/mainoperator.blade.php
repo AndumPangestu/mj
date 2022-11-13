@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="app.css" rel="stylesheet">
+
     <!-- Styles -->
 
     <style>
@@ -43,10 +44,6 @@
             <div class="nav">
                 <div class="link account">
                     <a href="profile.php"><span class="iconify me-3" data-icon="clarity:avatar-line" data-width="30"
-                            data-height="30" style="color: #1b2223;"></span></a>
-                </div>
-                <div class="link chart">
-                    <a href="cart.php"><span class="iconify me-3" data-icon="la:shopping-bag" data-width="30"
                             data-height="30" style="color: #1b2223;"></span></a>
                 </div>
                 <div class="link logout me-5">

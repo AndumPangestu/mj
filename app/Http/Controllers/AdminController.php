@@ -12,72 +12,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    // public function profile()
-    // {
-    //     return view('user/profiluser');
-    // }
-
-    // public function update_user(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'email' => 'required',
-    //         'contact_number' => 'required',
-    //         'address' => 'required',
-
-    //     ]);
-
-    //     $user = User::find(Auth::user()->id);
-
-    //     $user->name = $request->name;
-    //     $user->email = $request->email;
-    //     $user->contact_number = $request->contact_number;
-    //     $user->address = $request->address;
-    //     $user->save();
-    //     $request->session()->regenerate();
-    //     return redirect()->route('profile')->with('success', 'data updated!');
-    // }
-
-    // public function change_password()
-    // {
-    //     return view('user/change-password');
-    // }
-
-    // public function password_action(Request $request)
-    // {
-    //     $request->validate([
-    //         'password' => 'required',
-    //         'confirm_password' => 'required|same:password',
-    //     ]);
-    //     $user = User::find(Auth::id());
-    //     $user->password = Hash::make($request->password);
-    //     $user->save();
-    //     $request->session()->regenerate();
-    //     return redirect()->route('profile')->with('success', 'Password changed!');
-    // }
-
-
-    public function add_iklan(Request $request)
-    {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'running_text' => 'required',
-        ]);
-
-        $imageName = time() . '.' . $request->image->extension();
-
-        $request->image->move(public_path('images/iklan'), $imageName);
-
-        $iklan = new Ads([
-            'image' => $imageName,
-            'running_text' => $request->running_text
-
-        ]);
-
-        $iklan->save();
-        $request->session()->regenerate();
-        return redirect()->route('admin.addads')->with('success', 'data updated!');
-    }
 
     public function user_list()
     {
@@ -112,9 +46,15 @@ class AdminController extends Controller
 
     public function deposit(Request $request)
     {
-        // $deposit = DB::table("deposits")->sum('deposits_value')->where('id_user', $user->id)->get();
-        // $withdraw = DB::table("withdraws")->sum('withdraws_value')->where('id_user', $user->id)->get();
-        $saldo = 5;
+        $deposit = DB::table('deposits')
+            ->where('id_user', '=', $request->id)
+            ->sum('deposits_value');
+
+        $withdraw = DB::table('withdraws')
+            ->where('id_user', '=', $request->id)
+            ->sum('withdraws_value');
+
+        $saldo = $deposit - $withdraw;
 
         $data = array(
             'users' => User::find($request->id),

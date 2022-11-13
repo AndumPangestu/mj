@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\AdsController;
+use App\Http\Controllers\DepositController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -163,19 +164,20 @@ Route::post('/change-password', [UserController::class, 'password_action'])->nam
 
 Route::get('logout', [MainController::class, 'logout'])->name('logout');
 
-Route::post('/admin-addAds', [AdminController::class, 'add_iklan'])->name('iklan.add');
+Route::post('/admin-addAds', [AdsController::class, 'add_iklan'])->name('iklan.add');
 
 
-Route::get('/admin-listuser/{id}', [AdminController::class, 'user_list'])->name('user.list');
+Route::get('/admin-listuser', [AdminController::class, 'user_list'])->name('user.list');
 Route::get('/admin-listoperator', [AdminController::class, 'operator_list'])->name('operator.list');
 
 Route::get('/admin-adspage', [AdminController::class, 'ads_page'])->name('ads.page');
 
+Route::post('/admin-adsdeposit', [DepositController::class, 'add_deposit'])->name('deposit.add');
+
 
 Route::get('/admin-addDeposite', [AdminController::class, 'deposit'])->name('user.detail');
 
-
-Route::resource('/Admin/data', AdminController::class);
+Route::get('/Admin-addDeposite/{id}', [AdminController::class, 'deposit']);
 
 
 

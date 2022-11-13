@@ -22,41 +22,40 @@ background: -webkit-linear-gradient(89.99deg, #5261DA 85%, #653CDC 90.16%, #A182
                 <div class="col-12">
                     <div class="login-wrap p-0">
 
-                        <form action="#" class="signin-form ">
+                        <form action="{{ route('deposit.add') }}" method="POST" class="signin-form ">
+                            @csrf
                             <h6 class="my-3 text-white">Bukti Transfer</h6>
                             <div class="form-group">
                                 <input id="file" type="file" class="form-control rounded-pill py-3 px-4"
                                     name="proof_transfer" required>
                             </div>
                             <h6 class="my-3 text-white">Nama Pengguna(User)</h6>
-
                             <div class="form-group">
+                                <input type="text" name="id" name="id_user" value="{{ $users->id }}" hidden>
                                 <input id="" type="text" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Aryo Wiguna Cahyo" value="" name="name_user"disabled>
+                                    placeholder="Aryo Wiguna Cahyo" value="{{ $users->name }}" name="name_user"disabled>
                             </div>
-                            @php
-                                var_dump($users);
-                            @endphp
                             <h6 class="my-3 text-white">Saldo</h6>
                             <div class="form-group">
                                 <input id="" type="text" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Rp 2.000.000" name="saldo" value="{{ $saldo }}"disabled>
+                                    placeholder="Rp 2.000.000" name="deposits_total" value="{{ $saldo }}"disabled>
                             </div>
                             <h6 class="my-3 text-white">Jumlah Deposite</h6>
                             <div class="form-group">
                                 <input id="" type="text" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="Rp 10.000.000" name="deposit_value" required>
+                                    placeholder="" name="deposits_value" required>
                             </div>
                             <h6 class="my-3 text-white">Tanggal/Waktu</h6>
                             <div class="form-group">
                                 <input id="" type="datetime" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="09-11-2022 17:25" name="datetime" value="{{ date('Y-m-d', time()) }}"
-                                    disabled>
+                                    name="deposits_date" placeholder="09-11-2022 17:25" name="datetime"
+                                    value="{{ date('Y-m-d', time()) }}" disabled>
                             </div>
                             <h6 class="my-3 text-white">Nomor Referal</h6>
                             <div class="form-group">
                                 <input id="" type="text" class="form-control rounded-pill py-3 px-4"
-                                    placeholder="@Operator001" value="" name="reff_number_user" disabled>
+                                    placeholder="@Operator001" value="{{ $users->ref_code }}" name="reff_number_user"
+                                    disabled>
                             </div>
                             <div class="form-group mb-3 mt-5">
                                 <button type="submit"

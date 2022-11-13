@@ -56,8 +56,13 @@
                         <tr>
                             <td style="text-align: center">{{ $i++ }}</td>
                             <td>{{ $user->name }}</td>
-                            <td><a href="{{ route('user.detail', $user->id) }}" type="button" class="btn btn-table">Lihat
-                                    Detail</a></td>
+                            <td>
+                                <form action="">
+                                    <button href="{{ route('user.detail', $user->id) }}" type="button"
+                                        class="btn btn-table">Lihat
+                                        Detail</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
 

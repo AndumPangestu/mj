@@ -19,6 +19,7 @@ class Deposit extends Authenticatable
      * @var array<int, string>
      *
      */
+    protected $table = 'deposits';
 
     protected $fillable = [
         'image',

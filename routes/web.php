@@ -166,7 +166,7 @@ Route::get('logout', [MainController::class, 'logout'])->name('logout');
 Route::post('/admin-addAds', [AdminController::class, 'add_iklan'])->name('iklan.add');
 
 
-Route::get('/admin-listuser', [AdminController::class, 'user_list'])->name('user.list');
+Route::get('/admin-listuser/{id}', [AdminController::class, 'user_list'])->name('user.list');
 Route::get('/admin-listoperator', [AdminController::class, 'operator_list'])->name('operator.list');
 
 Route::get('/admin-adspage', [AdminController::class, 'ads_page'])->name('ads.page');
@@ -175,6 +175,7 @@ Route::get('/admin-adspage', [AdminController::class, 'ads_page'])->name('ads.pa
 Route::get('/admin-addDeposite', [AdminController::class, 'deposit'])->name('user.detail');
 
 
+Route::resource('/Admin/data', AdminController::class);
 
 
 

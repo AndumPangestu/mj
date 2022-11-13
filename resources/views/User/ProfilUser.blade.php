@@ -83,7 +83,7 @@
                             </div>
                             <div class="form-group">
                                 <a class="form-control btn btn-outline-primary py-3 px-3 rounded-pill"
-                                    href="">Batal</a>
+                                    href="/homepage">Batal</a>
                             </div>
 
                         </form>
@@ -100,7 +100,7 @@
                     Sandi</a>
             </div>
             <div class="form-group">
-                <a class="form-control btn btn-danger py-3 px-3 rounded-pill" href="">Keluar</a>
+                <a class="form-control btn btn-danger py-3 px-3 rounded-pill" href="{{ route('logout') }}">Keluar</a>
             </div>
         </div>
     </section>

@@ -110,14 +110,14 @@ class AdminController extends Controller
         return view('Admin/AdsPage')->with($data);
     }
 
-    public function deposit(User $user)
+    public function deposit(Request $request)
     {
         // $deposit = DB::table("deposits")->sum('deposits_value')->where('id_user', $user->id)->get();
         // $withdraw = DB::table("withdraws")->sum('withdraws_value')->where('id_user', $user->id)->get();
         $saldo = 5;
 
         $data = array(
-            'users' => User::find($user->id),
+            'users' => User::find($request->id),
             'saldo' => $saldo
         );
         return view('admin/AddDepositeAdmin')->with($data);

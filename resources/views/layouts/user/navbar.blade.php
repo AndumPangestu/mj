@@ -4,8 +4,8 @@
                 src="image/logo.svg" alt="logo" style="width: 21px;"> PT. Maju Bersama</a>
 
         <div class="nav ms-n5">
-            <a href="#" class="nav-item mx-4 nav-active">Halaman Utama</a>
-            <a href="#" class="nav-item mx-4">Misi</a>
+            <a href="/homepage" class="nav-item mx-4 nav-active">Halaman Utama</a>
+            <a href="/listmisi" class="nav-item mx-4">Misi</a>
             <a href="#" class="nav-item mx-4">Finansial</a>
 
         </div>
@@ -30,7 +30,7 @@
                     <li><a class="dropdown-item link account" href="{{ route('profile') }}">Profile</a></li>
                     <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
                 </ul>
-            <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                <!-- <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li> -->
             </li>
         </div>
     </div>
